@@ -102,7 +102,7 @@ public class Pet {
 			this.breed = breed;
 		}
 		
-		public String getTemperment() {
+		public String getTemperament() {
 			return temperament;
 		}
 		
