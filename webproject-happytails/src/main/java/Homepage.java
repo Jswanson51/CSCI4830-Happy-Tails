@@ -32,8 +32,8 @@ public class Homepage extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		//Prints the homepage title and motto.
-		response.getWriter().append("<h1 style=\"font-family:verdana\"><center>Happy Tails</center></h1>");
-		response.getWriter().append("<h4 style=\"font-family:verdana\"><center>Where all animals find happy homes!</center></h4>");
+		response.getWriter().append("<h1><center>Happy Tails</center></h1>");
+		response.getWriter().append("<h3><center>Where all animals find happy homes!</center></h3>");
 		
 	    //Displays all pets in database
 		response.setContentType("text/html");
@@ -47,8 +47,14 @@ public class Homepage extends HttpServlet {
 	            "transitional//en\">\n"; //
 	      out.println(docType + //
 	            "<html>\n" + //
-	            "<h4 style=\\\"font-family:verdana\\\"><center>" + title + "</center></h4>\n" + //
-	            "<body bgcolor=\"#f0f0f0\">\n" //
+	            "<style>\n" + //
+	            "h1 { font-family:Arial, sans-serif; color: #AC3B61; font-size: 45px; }" +
+	            "h3 { font-family:Arial, sans-serif; color: #123C69; }" +
+	            "h4 { font-family:Arial, sans-serif; color: #FF9999; }" +
+	            "li { border: 1px solid #000; margin: 5px; padding: 5px; width: 300px }" +
+	            "</style>\n" +
+	            "<h4><left>" + title + "</left></h4>\n" + //
+	            "<body bgcolor=\"#eee2dc\">\n" //
 	            );
 	      out.println("<ul>");
 	      List<Pet> listPets = UtilDB.listPets();
