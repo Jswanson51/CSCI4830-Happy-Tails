@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "Pet")
+@Table(name = "PetTable")
 public class Pet {
 
 		@Id 
@@ -22,9 +22,6 @@ public class Pet {
 		@Column(name = "age")
 		private Integer age;
 		
-		@Column(name = "weight")
-		private String weight;
-		
 		@Column(name = "species")
 		private String species;
 		
@@ -34,24 +31,27 @@ public class Pet {
 		@Column(name =  "temperament")
 		private String temperament;
 		
+		@Column(name = "weight")
+		private String weight;
+		
 		public Pet() {
 		}
 		
-		public Pet(Integer id, String name, Integer age, String weight, String species, String breed, String temperament) {
+		public Pet(Integer id, String name, Integer age, String species, String breed, String temperament, String weight) {
 			this.id = id;
 			this.name = name;
-			this.weight = weight;
 			this.species = species;
 			this.breed = breed;
 			this.temperament = temperament;
+			this.weight = weight;
 		}
 		
-		public Pet(String name, Integer age, String weight, String species, String breed, String temperament) {
+		public Pet(String name, Integer age, String species, String breed, String temperament, String weight) {
 			this.name = name;
-			this.weight = weight;
 			this.species = species;
 			this.breed = breed;
 			this.temperament = temperament;
+			this.weight = weight;
 		}
 		
 		public Integer getId() {
@@ -78,14 +78,6 @@ public class Pet {
 			this.age = age;
 		}
 		
-		public String getWeight() {
-			return weight;
-		}
-		
-		public void setWeight(String weight) {
-			this.weight = weight;
-		}
-		
 		public String getSpecies() {
 			return species;
 		}
@@ -110,8 +102,15 @@ public class Pet {
 			this.temperament = temperament;
 		}
 		
+		public String getWeight() {
+			return weight;
+		}
+		
+		public void setWeight(String weight) {
+			this.weight = weight;
+		}
 		@Override
 		   public String toString() {
-		      return "Pet: " + this.id + ", " + this.name + ", " + this.age + ", " + this.weight + "," + this.species + "," + this.breed + "," + this.temperament;
+		      return "Pet: " + this.id + ", " + this.name + ", " + this.age + ", " + this.temperament + ", " + this.species + ", " + this.breed + ", " + this.weight;
 		   }
 		}

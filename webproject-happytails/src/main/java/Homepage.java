@@ -39,8 +39,8 @@ public class Homepage extends HttpServlet {
 		response.setContentType("text/html");
 
 	      // #1
-		UtilDB.createPets("Spot", "11", "25lbs", "Dog", "Dalmatian", "Energetic");
-	    UtilDB.createPets("Fluffy", "3", "12lbs", "Cat", "Persian", "Calm");
+		UtilDB.createPets("Spot", "11", "Energetic", "Dog", "Dalmatian", "25lbs");
+	    UtilDB.createPets("Fluffy", "3", "Calm", "Cat", "Persian", "12lbs");
 	      
 	      // #2
 	     display(response.getWriter());
@@ -61,18 +61,18 @@ public class Homepage extends HttpServlet {
 	    	  System.out.println("[DBG] " + pet.getId() + ", " //
 	    			+ pet.getName() + ", " //
 	    			+ pet.getAge() + ", " //
-	    			+ pet.getWeight() + ","
+	    			+ pet.getTemperament() + ","
 	    			+ pet.getSpecies() + ","
 	    			+ pet.getBreed() + ","
-	    			+ pet.getTemperament());
+	    			+ pet.getWeight());
 	
 	    	  out.println("<li>" + pet.getId() + ", " //
 	    		   + pet.getName() + ", " //
 		           + pet.getAge() + ", " //
-		           + pet.getWeight() + ","
+		           + pet.getTemperament() + ","
 		           + pet.getSpecies() + ","
 		           + pet.getBreed() + ","
-		           + pet.getTemperament() + "</li>");
+		           + pet.getWeight() + "</li>");
 	    }
 	 }
 
