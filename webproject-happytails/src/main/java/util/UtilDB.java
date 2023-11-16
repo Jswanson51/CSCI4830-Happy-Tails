@@ -43,7 +43,7 @@ public class UtilDB {
 
       try {
          tx = session.beginTransaction();
-         List<?> pets = session.createQuery("FROM PetTable").list();
+         List<?> pets = session.createQuery("FROM Pet").list();
          for (Iterator<?> iterator = pets.iterator(); iterator.hasNext();) {
             Pet pet = (Pet) iterator.next();
             resultList.add(pet);
@@ -70,7 +70,7 @@ public class UtilDB {
          tx = session.beginTransaction();
          System.out.println((Pet)session.get(Pet.class, 1));
        
-         List<?> pets = session.createQuery("FROM PetTable").list();
+         List<?> pets = session.createQuery("FROM Pet").list();
          for (Iterator<?> iterator = pets.iterator(); iterator.hasNext();) {
             Pet pet = (Pet) iterator.next();
                resultList.add(pet);
@@ -87,12 +87,12 @@ public class UtilDB {
    }
 
    //Creates a pet object
-   public static void createPets(String Name, String age, String species, String breed, String temperament, String weight) {
+   public static void createPets(String name, String age, String species, String breed, String temperament, String weight) {
       Session session = getSessionFactory().openSession();
       Transaction tx = null;
       try {
          tx = session.beginTransaction();
-         session.save(new Pet(Name, Integer.valueOf(age), species, breed, temperament, weight));
+         session.save(new Pet(name, age, species, breed, temperament, weight));
          tx.commit();
       } catch (HibernateException e) {
          if (tx != null)

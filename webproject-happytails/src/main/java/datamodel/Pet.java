@@ -20,7 +20,7 @@ public class Pet {
 		private String name;
 		
 		@Column(name = "age")
-		private Integer age;
+		private String age;
 		
 		@Column(name = "species")
 		private String species;
@@ -37,8 +37,9 @@ public class Pet {
 		public Pet() {
 		}
 		
-		public Pet(Integer id, String name, Integer age, String species, String breed, String temperament, String weight) {
+		public Pet(Integer id, String name, String age, String species, String breed, String temperament, String weight) {
 			this.id = id;
+			this.age = age;
 			this.name = name;
 			this.species = species;
 			this.breed = breed;
@@ -46,8 +47,9 @@ public class Pet {
 			this.weight = weight;
 		}
 		
-		public Pet(String name, Integer age, String species, String breed, String temperament, String weight) {
+		public Pet(String name, String age, String species, String breed, String temperament, String weight) {
 			this.name = name;
+			this.age = age;
 			this.species = species;
 			this.breed = breed;
 			this.temperament = temperament;
@@ -70,11 +72,11 @@ public class Pet {
 			this.name = name;
 		}
 		
-		public Integer getAge() {
+		public String getAge() {
 			return age;
 		}
 		
-		public void setAge(Integer age) {
+		public void setAge(String age) {
 			this.age = age;
 		}
 		
