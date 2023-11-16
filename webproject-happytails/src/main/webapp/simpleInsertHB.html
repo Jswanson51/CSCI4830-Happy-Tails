@@ -1,0 +1,142 @@
+<html>
+<head>
+<style>
+
+.color-change {
+    background-color: #ddd; 
+}	
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    background-color: #eeeeee;
+    height:300px;
+    width:150px;
+    float: left;
+    padding: 10px;
+}
+
+nav a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+section {
+    width: 500px; 
+    height:350px;
+    float: left;
+    padding: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    clear: both;
+    text-align: center;
+    padding: 10px;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+</style>
+</head>
+
+<body>
+<header>
+<h1> Insert Pet</h1>
+</header>
+
+<nav>
+<a href="/webproject-happytails/simpleInsertHB.html" class="color-change">Insert Pets</a> <br>
+<a href="/webproject-happytails/simpleSearchHB.html" >Search Pets</a> <br>
+</nav>
+
+<section>
+	
+	<form action="SimpleInsertHB" method="POST">
+	
+		Name: <input type="text" name="name"> <br />
+		Age: <input type="text" name="age" > <br />
+		Species: <input type="text" name="species"> <br />
+		Breed: <input type="text" name="breed"> <br />
+		Temperament: 
+	    <select name="temperament">
+	       <option value="Active">Active</option>
+	       <option value="Anxious">Anxious</option>
+	       <option value="Calm">Calm</option>
+	       <option value="Playful">Playful</option>
+	       <option value="Quiet">Quiet</option>
+	    </select><br>
+	    Weight: <input type="text" name="weight"> <br />
+		
+		<input type="submit" value="Submit" />
+	</form>
+
+</section>
+
+</body>
+</html>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datamodel.Pet;
+import util.Info;
 import util.UtilDB;
 /**
  * Servlet implementation class Homepage
@@ -39,7 +40,7 @@ public class Homepage extends HttpServlet {
 		response.setContentType("text/html");
 
 	     display(response.getWriter());
-	 }
+	}
 
 	 void display(PrintWriter out) {
 		 String title = "Pets Looking for Homes:";
@@ -75,6 +76,7 @@ public class Homepage extends HttpServlet {
 		           + pet.getBreed() + ", "
 		           + pet.getWeight() + "</li>");
 	    }
+	    out.println("<a href=/" + Info.projectName + "/" + Info.insertWebName + ">Insert Pets</a> <br>");
 	 }
 
 	/**
