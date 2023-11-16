@@ -40,7 +40,8 @@ public class Homepage extends HttpServlet {
 		response.setContentType("text/html");
 
 	     display(response.getWriter());
-	}
+	     
+	 }
 
 	 void display(PrintWriter out) {
 		 String title = "Pets Looking for Homes:";
@@ -48,15 +49,22 @@ public class Homepage extends HttpServlet {
 	            "transitional//en\">\n"; //
 	      out.println(docType + //
 	            "<html>\n" + //
-	            "<style>\n" + //
+	    		"<form action=\"SimpleSearchHB\" method=\"POST\">\r\n"
+	            + "	\r\n"
+	            + "		Search For Pets: <input type=\"text\" name=\"keyword\"> <br />\r\n"
+	            + "		\r\n"
+	            + "		<input type=\"submit\" value=\"Search\" />\r\n"
+	            + "	</form>"
+	            + "<style>\n" + //
 	            "h1 { font-family:Arial, sans-serif; color: #AC3B61; font-size: 45px; }" +
 	            "h3 { font-family:Arial, sans-serif; color: #123C69; }" +
 	            "h4 { font-family:Arial, sans-serif; color: #FF9999; }" +
-	            "li { border: 1px solid #000; margin: 5px; padding: 5px; width: 300px }" +
+	            "li { border: 1px solid #000; margin: 5px; padding: 5px; width: 300px; }" +
 	            "</style>\n" +
 	            "<h4><left>" + title + "</left></h4>\n" + //
 	            "<body bgcolor=\"#eee2dc\">\n" //
 	            );
+	      
 	      out.println("<ul>");
 	      List<Pet> listPets = UtilDB.listPets();
 	      for (Pet pet : listPets) {
