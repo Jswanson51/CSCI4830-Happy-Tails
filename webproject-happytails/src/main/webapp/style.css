@@ -1,0 +1,162 @@
+@charset "ISO-8859-1";
+
+.color-change {
+    background-color: #ddd; 
+}	
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    height: 1100px; 
+}
+
+nav {
+    background-color: #eeeeee;
+    height:300px;
+    width:150px;
+    float: left;
+    padding: 10px;
+}
+
+nav a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+section {
+    width: 500px; 
+    height:350px;
+    float: left;
+    padding: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    clear: both;
+    text-align: center;
+    padding: 10px;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.pet-tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+
+.pet-tile {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    flex: 1;
+}
+
+.pet-tile h4 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.pet-tile ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pet-tile li {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.pet-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.pet-table th, .pet-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.pet-table th {
+    background-color: #333;
+    color: white;
+}
+
+.pet-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pet-table tr:hover {
+    background-color: #ddd;
+}
+
+

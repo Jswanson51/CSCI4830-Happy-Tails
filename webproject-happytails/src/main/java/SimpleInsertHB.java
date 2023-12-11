@@ -33,10 +33,22 @@ public class SimpleInsertHB extends HttpServlet implements Info {
       String title = "Database Result";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
-            "<html>\n" + //
-            "<head><title>" + title + "</title></head>\n" + //
-            "<body bgcolor=\"#f0f0f0\">\n" + //
-            "<h1 align=\"center\">" + title + "</h1>\n");
+    		  "<html>\n" +
+                "<head>\n" +
+                "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<header>\n" +
+                "<h1><center>Pets Database Result</center></h1>\n" +
+                "</header>\n" +
+                "<nav>\n" +
+                "<a href=\"/" + Info.projectName + "/HomePage\">Happy Tails</a> <br>\n" +
+                "<a href=\"/" + Info.projectName + "/simpleInserthHB.html\" class=\"color-change\">Insert Pets</a> <br>\n" +
+                "<a href=\"/" + Info.projectName + "/simpleSearchHB.html\" >Search Pets</a> <br>\n" +
+                "</nav>\n" +
+                "<section>\n"
+            );
+      
       out.println("<ul>");
       out.println("<li> Name: " + name);
       out.println("<li> Age: " + age);
@@ -45,7 +57,7 @@ public class SimpleInsertHB extends HttpServlet implements Info {
       out.println("<li> Temperament: " + temperament);
       out.println("<li> Weight: " + weight);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Pets</a> <br>");
+      out.println("<a href=/" + projectName + "/" + insertWebName + ">Back to Insert</a> <br>");
       out.println("</body></html>");
    }
 

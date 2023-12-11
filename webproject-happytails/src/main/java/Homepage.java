@@ -32,10 +32,6 @@ public class Homepage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		//Prints the homepage title and motto.
-		response.getWriter().append("<h1><center>Happy Tails</center></h1>");
-		response.getWriter().append("<h3><center>Where all animals find happy homes!</center></h3>");
-		
 	    //Displays all pets in database
 		response.setContentType("text/html");
 
@@ -44,47 +40,40 @@ public class Homepage extends HttpServlet {
 	 }
 
 	 void display(PrintWriter out) {
-		 String title = "Pets Looking for Homes:";
 	     String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
 	            "transitional//en\">\n"; //
 	      out.println(docType + //
-	            "<html>\n" + //
-	    		"<form action=\"SimpleSearchHB\" method=\"POST\">\r\n"
-	            + "	\r\n"
-	            + "		Search For Pets: <input type=\"text\" name=\"keyword\"> <br />\r\n"
-	            + "		\r\n"
-	            + "		<input type=\"submit\" value=\"Search\" />\r\n"
-	            + "	</form>"
-	            + "<style>\n" + //
-	            "h1 { font-family:Arial, sans-serif; color: #AC3B61; font-size: 45px; }" +
-	            "h3 { font-family:Arial, sans-serif; color: #123C69; }" +
-	            "h4 { font-family:Arial, sans-serif; color: #FF9999; }" +
-	            "li { border: 1px solid #000; margin: 5px; padding: 5px; width: 300px; }" +
-	            "</style>\n" +
-	            "<h4><left>" + title + "</left></h4>\n" + //
-	            "<body bgcolor=\"#eee2dc\">\n" //
+	    		  "<html>\n" +
+	                "<head>\n" +
+	                "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n" +
+	                "</head>\n" +
+	                "<body>\n" +
+	                "<header>\n" +
+	                "<h1><center>Homepage</center></h1>\n" +
+	                "</header>\n" +
+	                "<nav>\n" +
+	                "<a href=\"/" + Info.projectName + "/HomePage\" class=\"color-change\">Happy Tails</a> <br>\n" +
+	                "<a href=\"/" + Info.projectName + "/simpleInsertHB.html\" >Insert Pets</a> <br>\n" +
+	                "<a href=\"/" + Info.projectName + "/simpleSearchHB.html\" >Search Pets</a> <br>\n" +
+	                "</nav>\n" +
+	                "<section>\n"
 	            );
 	      
-	      out.println("<ul>");
+	      out.println("<div class=\"pet-tile-container\">"); // Add a container for the pet tiles
 	      List<Pet> listPets = UtilDB.listPets();
 	      for (Pet pet : listPets) {
-	    	  System.out.println("[DBG] " + pet.getId() + ", " //
-	    			+ pet.getName() + ", " //
-	    			+ pet.getAge() + ", " //
-	    			+ pet.getTemperament() + ", "
-	    			+ pet.getSpecies() + ", "
-	    			+ pet.getBreed() + ", "
-	    			+ pet.getWeight());
-	
-	    	  out.println("<li>" + pet.getId() + ", " //
-	    		   + pet.getName() + ", " //
-		           + pet.getAge() + ", " //
-		           + pet.getTemperament() + ", "
-		           + pet.getSpecies() + ", "
-		           + pet.getBreed() + ", "
-		           + pet.getWeight() + "</li>");
-	    }
-	    out.println("<a href=/" + Info.projectName + "/" + Info.insertWebName + ">Insert Pets</a> <br>");
+	          out.println("<div class=\"pet-tile\">"); // Add a class for styling the pet tile
+	          out.println("<h4>" + pet.getName() + "</h4>");
+	          out.println("<ul>");
+	          out.println("<li>Age: " + pet.getAge() + "</li>");
+	          out.println("<li>Temperament: " + pet.getTemperament() + "</li>");
+	          out.println("<li>Species: " + pet.getSpecies() + "</li>");
+	          out.println("<li>Breed: " + pet.getBreed() + "</li>");
+	          out.println("<li>Weight: " + pet.getWeight() + "</li>");
+	          out.println("</ul>");
+	          out.println("</div>");
+	      }
+	      out.println("</div>"); // Close the container
 	 }
 
 	/**
