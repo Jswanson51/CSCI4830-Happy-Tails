@@ -68,12 +68,13 @@ public class UtilDB {
 
       try {
          tx = session.beginTransaction();
-         System.out.println((Pet)session.get(Pet.class, 1));
        
          List<?> pets = session.createQuery("FROM Pet").list();
          for (Iterator<?> iterator = pets.iterator(); iterator.hasNext();) {
             Pet pet = (Pet) iterator.next();
-               resultList.add(pet);
+            if (pet.getName().startsWith(keyword)) {
+                resultList.add(pet);
+             }
          }
          tx.commit();
       } catch (HibernateException e) {
