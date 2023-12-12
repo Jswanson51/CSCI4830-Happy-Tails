@@ -15,7 +15,7 @@ header {
     color: white;
     text-align: center;
     padding: 10px;
-    height: 1100px; 
+    height: 120px; 
 }
 
 nav {
@@ -102,9 +102,11 @@ form input[type="submit"]:hover {
 }
 
 .pet-tile-container {
+	width: 800px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; 
+    align-items: flex-start;
 }
 
 
@@ -115,7 +117,7 @@ form input[type="submit"]:hover {
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    flex: 1;
+    flex: 0 0 200px;
 }
 
 .pet-tile h4 {

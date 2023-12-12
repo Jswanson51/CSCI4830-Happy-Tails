@@ -1,0 +1,42 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+
+<body>
+<header>
+<h1>Adoption Form</h1>
+</header>
+
+<nav>
+<a href="/webproject-happytails/HomePage">Happy Tails</a> <br>
+<a href="/webproject-happytails/simpleInsertHB.html" >Insert Pets</a> <br>
+<a href="/webproject-happytails/simpleSearchHB.html" >Search Pets</a> <br>
+<a href="/webproject-happytails/adoptionForm.html" class="color-change">Adoption Form</a> <br>
+</nav>
+
+<section>
+	
+	<form action="AdoptionFormHB" method="POST">
+	
+		Full Name: <input type="text" name="userName"> <br /><br />
+		Email Address: <input type="email" name="email"> <br /><br>
+		Phone Number: <input type="tel" name="phoneNumber"> <br /><br /><br />
+		
+		<hr><br />
+		
+		Pet Name: <input type="text" name="petName"> <br />
+		Pet ID: <input type="text" name="petId" > <br /><br />
+		
+		<p>Describe why you think this will be a good pairing: </p>
+		<textarea name="adoptionPurpose" rows="4" cols="50" style="resize: none;"></textarea> 
+		
+		<br /><br />
+		
+		<input type="submit" value="Delete" />
+	</form>
+
+</section>
+
+</body>
+</html>

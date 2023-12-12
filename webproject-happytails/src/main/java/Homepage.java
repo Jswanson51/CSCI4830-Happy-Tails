@@ -50,11 +50,13 @@ public class Homepage extends HttpServlet {
 	                "<body>\n" +
 	                "<header>\n" +
 	                "<h1><center>Homepage</center></h1>\n" +
+	                "<h3><center>Where all animals find happy homes!</center></h3>\n" +
 	                "</header>\n" +
 	                "<nav>\n" +
 	                "<a href=\"/" + Info.projectName + "/HomePage\" class=\"color-change\">Happy Tails</a> <br>\n" +
 	                "<a href=\"/" + Info.projectName + "/simpleInsertHB.html\" >Insert Pets</a> <br>\n" +
 	                "<a href=\"/" + Info.projectName + "/simpleSearchHB.html\" >Search Pets</a> <br>\n" +
+	                "<a href=\"/" + Info.projectName + "/adoptionForm.html\" >Adoption Form</a> <br>\n" +
 	                "</nav>\n" +
 	                "<section>\n"
 	            );
@@ -63,7 +65,7 @@ public class Homepage extends HttpServlet {
 	      List<Pet> listPets = UtilDB.listPets();
 	      for (Pet pet : listPets) {
 	          out.println("<div class=\"pet-tile\">"); // Add a class for styling the pet tile
-	          out.println("<h4>" + pet.getName() + "</h4>");
+	          out.println("<h4><i>" + pet.getId() + "</i>  |   " + pet.getName() + "</h4>");
 	          out.println("<ul>");
 	          out.println("<li>Age: " + pet.getAge() + "</li>");
 	          out.println("<li>Temperament: " + pet.getTemperament() + "</li>");

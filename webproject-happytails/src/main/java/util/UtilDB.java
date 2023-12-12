@@ -102,5 +102,33 @@ public class UtilDB {
          session.close();
       }
    }
+   
+   public static boolean deletePet(int petId) {
+	    Session session = getSessionFactory().openSession();
+	    Transaction tx = null;
+
+	    try {
+	        tx = session.beginTransaction();
+	        Object object = session.get(Pet.class, petId);
+	           
+	           if (object != null && object instanceof Pet) {
+	        	   Pet row = (Pet) object;
+	               session.delete(row);
+	               tx.commit();
+	               return true;
+	           }
+	           
+	           return false;
+
+	    } catch (HibernateException e) {
+	        if (tx != null)
+	            tx.rollback();
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+	        session.close();
+	    }
+	}
+   
 }
 

@@ -22,15 +22,6 @@ public class SimpleSearchHB extends HttpServlet implements Info {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String keyword = request.getParameter("keyword");
-    		  
-    	// Check if the parameter is null before invoking trim()
-        if (keyword != null) {
-            keyword = keyword.trim();
-        } else {
-            // Handle the case when the parameter is null (optional)
-            // For example, you might set a default value or display an error message.
-            keyword = ""; // Set a default value (empty string) for keyword
-        }
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
@@ -48,11 +39,14 @@ public class SimpleSearchHB extends HttpServlet implements Info {
                 "<a href=\"/" + Info.projectName + "/HomePage\">Happy Tails</a> <br>\n" +
                 "<a href=\"/" + Info.projectName + "/simpleInsertHB.html\" >Insert Pets</a> <br>\n" +
                 "<a href=\"/" + Info.projectName + "/simpleSearchHB.html\" class=\"color-change\">Search Pets</a> <br>\n" +
+                "<a href=\"/" + Info.projectName + "/adoptionForm.html\" >Adoption Form</a> <br>\n" +
                 "</nav>\n" +
                 "<section>\n"
             );
       
       out.println("<ul>");
+      
+      System.out.println("[DBG] " + keyword);	
 
       List<Pet> listPets = null;
       if (keyword != null && !keyword.isEmpty()) {
@@ -71,6 +65,14 @@ public class SimpleSearchHB extends HttpServlet implements Info {
 	    out.println("<tr><th>ID</th><th>Name</th><th>Age</th><th>Temperament</th><th>Species</th><th>Breed</th><th>Weight</th></tr>");
 
 	    for (Pet pet : listPets) {
+	    	System.out.println("[DBG] " + pet.getId() + ", " //
+	    			+ pet.getName() + ", " //
+	    			+ pet.getAge() + ", " //
+	    			+ pet.getTemperament() + ", "
+	    			+ pet.getSpecies() + ", "
+	    			+ pet.getBreed() + ", "
+	    			+ pet.getWeight());
+	    	
 	        out.println("<tr><td>" + pet.getId() + "</td><td>" //
 	                + pet.getName() + "</td><td>" //
 	                + pet.getAge() + "</td><td>"

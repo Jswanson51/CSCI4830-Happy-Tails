@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,30 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import datamodel.Pet;
 import util.Info;
 import util.UtilDB;
 
-@WebServlet("/SimpleInsertHB")
-public class SimpleInsertHB extends HttpServlet implements Info {
+@WebServlet("/AdoptionFormHB")
+public class AdoptionFormHB extends HttpServlet implements Info {
    private static final long serialVersionUID = 1L;
 
-   public SimpleInsertHB() {
+   public AdoptionFormHB() {
       super();
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String name = request.getParameter("name").trim();
-      String age = request.getParameter("age").trim();
-      String species = request.getParameter("species").trim();
-      String breed = request.getParameter("breed").trim();
-      String temperament = request.getParameter("temperament").trim();
-      String weight = request.getParameter("weight").trim();
-      
-      UtilDB.createPets(name, age, species, breed, temperament, weight);
+      String petId = request.getParameter("petId");
+      String petName = request.getParameter("petName");
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Database Result";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
     		  "<html>\n" +
@@ -39,28 +34,41 @@ public class SimpleInsertHB extends HttpServlet implements Info {
                 "</head>\n" +
                 "<body>\n" +
                 "<header>\n" +
-                "<h1><center>Pets Database Result</center></h1>\n" +
+                "<h1><center>Adoption Form</center></h1>\n" +
                 "</header>\n" +
                 "<nav>\n" +
                 "<a href=\"/" + Info.projectName + "/HomePage\">Happy Tails</a> <br>\n" +
-                "<a href=\"/" + Info.projectName + "/simpleInserthHB.html\" class=\"color-change\">Insert Pets</a> <br>\n" +
+                "<a href=\"/" + Info.projectName + "/simpleInsertHB.html\" >Insert Pets</a> <br>\n" +
                 "<a href=\"/" + Info.projectName + "/simpleSearchHB.html\" >Search Pets</a> <br>\n" +
-                "<a href=\"/" + Info.projectName + "/adoptionForm.html\" >Adoption Form</a> <br>\n" +
+                "<a href=\"/" + Info.projectName + "/adoptionForm.html\" class=\"color-change\">Adoption Form</a> <br>\n" +
                 "</nav>\n" +
                 "<section>\n"
             );
       
       out.println("<ul>");
-      out.println("<li> Name: " + name);
-      out.println("<li> Age: " + age);
-      out.println("<li> Species: " + species);
-      out.println("<li> Breed: " + breed);
-      out.println("<li> Temperament: " + temperament);
-      out.println("<li> Weight: " + weight);
+      
+      if (petId != null && !petId.isEmpty()) {
+    	    try {
+    	        int id = Integer.parseInt(petId);
+    	        boolean success = UtilDB.deletePet(id);
+
+                if (success) {
+                    out.println("<h3>Pet with ID " + id + " deleted successfully.</h3>");
+                } else {
+                    out.println("<h3>Error deleting Pet with ID " + id + ". Pet not found.</h3>");
+                }
+            } catch (NumberFormatException e) {
+                out.println("<h3>Error: Invalid Pet ID format.</h3>");
+            }
+        } else {
+            out.println("<h3>Error: Please provide a valid Pet ID.</h3>");
+        }
+      
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + insertWebName + ">Back to Insert</a> <br>");
+      out.println("<a href=/" + projectName + "/" + adoptionWebName + ">Back to Adoption Form</a> <br>");
       out.println("</body></html>");
    }
+
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       doGet(request, response);
